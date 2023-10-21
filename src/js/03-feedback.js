@@ -4,7 +4,7 @@ const form = document.querySelector('.feedback-form');
 const KEY = 'feedback-form-state';
 let feedbackData = {};
 
-function saveToLocalStorage() {
+function saveToLocalStorage(e) {
   feedbackData[e.target.name] = e.target.value.trim();
   localStorage.setItem(KEY, JSON.stringify(feedbackData));
 }

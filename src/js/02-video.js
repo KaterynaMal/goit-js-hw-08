@@ -2,14 +2,15 @@ import Vimeo from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
 const vimeoPlayer = new Vimeo('vimeo-player');
+const KEY = 'videoplayer-current-time';
 
 function saveCurrentTime(currentTime) {
-  localStorage.setItem('videoplayer-current-time', currentTime);
+  localStorage.setItem(KEY, currentTime);
 }
 
 
 function restoreCurrentTime() {
-  const currentTime = localStorage.getItem('videoplayer-current-time');
+  const currentTime = localStorage.getItem(KEY);
   if (currentTime) {
     vimeoPlayer.setCurrentTime(currentTime).then(() => {
       console.log('Video time restored:', currentTime);
